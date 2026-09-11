@@ -68,16 +68,54 @@ p {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
+.logo-blocks {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: var(--text-primary);
-    letter-spacing: -0.5px;
+    gap: 0.6rem;
 }
 
-.logo span {
-    color: var(--accent);
+.block-group {
+    display: flex;
+    gap: 4px;
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-block {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    box-shadow: 0 4px 10px var(--accent-glow);
+}
+
+.logo-blocks:hover .block {
+    transform: translateY(-3px) rotate(-3deg);
+}
+
+.logo-blocks:hover .highlight-block {
+    transform: translateY(-3px) rotate(3deg);
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
 .nav-links {
