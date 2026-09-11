@@ -438,10 +438,39 @@ p {
 }
 
 /* DevOps Section */
+.devops-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
 .devops-content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    flex: 1;
+}
+
+.devops-graphic {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid var(--glass-border);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
 }
 
 .devops-text {
