@@ -259,6 +259,29 @@ p {
 .code-snippet .func { color: #60a5fa; }
 .code-snippet .string { color: #34d399; }
 
+.image-card {
+    z-index: 1;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.5s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-10px);
+}
+
+.profile-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
 /* Glass Panels (Reusable) */
 .glass-panel {
     background: var(--bg-secondary);
