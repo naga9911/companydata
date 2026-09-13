@@ -2,34 +2,165 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #f5f7fa;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 25px;
+    flex-direction: column;
     color: #333;
+}
+
+/* Header */
+.header {
+    background: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4a90e2;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: #f0f4f8;
+    border-color: #4a90e2;
+    color: #4a90e2;
+}
+
+/* Main Layout */
+.main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevent body scroll if content is long, scroll inside instead */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: white;
+    padding: 20px 0;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.sidebar-group {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-toggle-btn {
+    width: 100%;
+    padding: 15px 20px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #444;
+}
+
+.sidebar-toggle-btn:hover {
+    background: #f8f9fa;
+}
+
+.sidebar-toggle-btn.active {
+    background: #e9ecef;
     font-weight: 600;
 }
 
+.arrow {
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+}
+
+.sidebar-dropdown {
+    display: none;
+    background: #fdfdfd;
+}
+
+.sidebar-dropdown.show {
+    display: block;
+}
+
+.sidebar-btn {
+    width: 100%;
+    padding: 12px 20px 12px 40px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-btn:hover {
+    background: #f0f0f0;
+}
+
+.sidebar-btn.active {
+    background: #eef2f5;
+    border-left: 3px solid #3498db;
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* Content Area */
+.content-area {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.screen-section {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.screen-section.active-screen {
+    display: block;
+}
+
+.screen-section h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Form Styles */
 .form-group {
     margin-bottom: 20px;
 }
@@ -37,8 +168,8 @@ h2 {
 label {
     display: block;
     margin-bottom: 8px;
-    color: #555;
     font-weight: 500;
+    color: #555;
 }
 
 input, textarea {
@@ -46,48 +177,138 @@ input, textarea {
     padding: 12px 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 15px;
+    transition: border-color 0.3s;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: #4a90e2;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
-button {
-    width: 100%;
-    padding: 14px;
-    background-color: #4a90e2;
-    color: white;
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.submit-btn, .delete-btn {
+    padding: 12px 24px;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    margin-top: 10px;
+    font-size: 15px;
+    transition: all 0.2s;
+    flex: 1;
 }
 
-button:hover {
-    background-color: #357abd;
+.submit-btn {
+    background: #4a90e2;
+    color: white;
 }
 
-button:active {
-    transform: scale(0.98);
+.submit-btn:hover {
+    background: #357abd;
 }
 
-.success-message {
-    color: #27ae60;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: 500;
-}
-
-.error-message {
+.delete-btn {
+    background: #f8f9fa;
     color: #e74c3c;
-    text-align: center;
-    margin-top: 20px;
+    border: 1px solid #f1a9a0;
+}
+
+.delete-btn:hover {
+    background: #fdedec;
+}
+
+/* Data Section */
+.data-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.download-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.download-btn:hover {
+    background: #219653;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #f8f9fa;
+    color: #555;
+    font-weight: 600;
+}
+
+tr:hover {
+    background: #fdfdfd;
+}
+
+.edit-btn {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
     font-weight: 500;
+    transition: background 0.2s;
+}
+
+.edit-btn:hover {
+    background: #e67e22;
+}
+
+.no-data {
+    text-align: center;
+    color: #888;
+    padding: 20px 0;
+    font-style: italic;
+}
+
+/* Footer */
+.footer {
+    background: #ffffff;
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #777;
 }
