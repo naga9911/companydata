@@ -125,4 +125,37 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fallback
         return "That's an interesting question! I am just a simple simulated AI right now, but you can email Nagababu directly at nagababui.urs@gmail.com for more details.";
     }
+
+    // Portfolio Search functionality
+    const searchInput = document.getElementById('site-search');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            
+            // Filter Timeline Items (Experience)
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(query) ? '' : 'none';
+            });
+            
+            // Filter Skill Cards
+            document.querySelectorAll('.skill-card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(query) ? '' : 'none';
+            });
+            
+            // Filter Manual Testing Slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                const text = slide.textContent.toLowerCase();
+                slide.style.display = text.includes(query) ? '' : 'none';
+            });
+            
+            // Filter DevOps Tags
+            document.querySelectorAll('.devops-tags .tag').forEach(tag => {
+                const text = tag.textContent.toLowerCase();
+                tag.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    }
 });

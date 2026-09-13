@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nagababu Irrinki - Resume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            background-color: #fff;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+        .title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #34495e;
+            margin: 0 0 10px 0;
+        }
+        .contact-info a {
+            color: #2980b9;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        section {
+            margin-bottom: 25px;
+        }
+        h2 {
+            font-size: 1.4em;
+            color: #2c3e50;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 1.1em;
+            margin: 0 0 5px 0;
+            color: #34495e;
+        }
+        .experience-item {
+            margin-bottom: 15px;
+        }
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .skill-category h3 {
+            margin-bottom: 10px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background-color: #ecf0f1;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid #bdc3c7;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            a {
+                text-decoration: none;
+                color: #333;
+            }
+            /* Hide print URL links */
+            a[href]:after {
+                content: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nagababu Irrinki</h1>
+        <p class="title">Test Engineer & Future DevOps Engineer</p>
+        <div class="contact-info">
+            <a href="mailto:nagababui.urs@gmail.com">nagababui.urs@gmail.com</a> |
+            <a href="https://www.linkedin.com/in/nagababu-irrinki-13801a3b0/">LinkedIn</a> |
+            <a href="https://github.com/naga9911">GitHub</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p>Software quality assurance professional with 2.8 years of hands-on experience ensuring software quality through rigorous testing. Currently transitioning and expanding horizons into DevOps to build robust, automated pipelines and infrastructure. Proficient in manual and automation testing, defect management, and agile methodologies.</p>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Test Engineer - Changepond Technologies</h3>
+                <span class="date">April 2021 - December 2023</span>
+            </div>
+            <ul>
+                <li><strong>Manual & Automation Testing:</strong> Designed and executed comprehensive test plans and test cases. Implemented automated UI and API tests to reduce manual effort and increase coverage.</li>
+                <li><strong>Defect Management & Jira:</strong> Proficient in creating, tracking, and resolving Jira tickets. Managed the bug life cycle from discovery to closure, ensuring all issues were documented with clear reproduction steps.</li>
+                <li><strong>Functional & Regression Testing:</strong> Validated software systems against functional requirements and specifications. Performed comprehensive re-testing of the application to confirm recent code changes did not adversely affect existing features.</li>
+                <li><strong>Smoke & UAT Testing:</strong> Executed initial test suites to verify stability and assisted in the final phase of User Acceptance Testing where real users tested the software in real-world scenarios.</li>
+                <li><strong>Client Interaction & Release:</strong> Actively engaged with clients during build releases. Reviewed client business documents to ensure the delivered product met all expectations and requirements. Collaborated with developers to identify and resolve defects early.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Quality Assurance</h3>
+                <div class="tags">
+                    <span class="tag">Manual Testing</span>
+                    <span class="tag">Automation Testing</span>
+                    <span class="tag">Defect Management</span>
+                    <span class="tag">Agile / Scrum</span>
+                    <span class="tag">Jira</span>
+                    <span class="tag">UAT</span>
+                    <span class="tag">API Testing</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>DevOps (In Progress)</h3>
+                <div class="tags">
+                    <span class="tag">CI/CD Pipelines</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">Azure</span>
+                    <span class="tag">Infrastructure as Code</span>
+                    <span class="tag">GitOps</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
