@@ -129,34 +129,82 @@ document.addEventListener('DOMContentLoaded', () => {
     // Portfolio Search functionality
     const searchInput = document.getElementById('site-search');
     const searchBtn = document.getElementById('search-btn');
+    const searchResults = document.getElementById('search-results');
     
-    if (searchInput && searchBtn) {
+    if (searchInput && searchBtn && searchResults) {
+        // Collect all searchable data once
+        const searchableItems = [];
+        
+        // Experience
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            searchableItems.push({
+                title: item.querySelector('h3') ? item.querySelector('h3').textContent : 'Experience',
+                desc: item.querySelector('ul') ? item.querySelector('ul').textContent : item.textContent,
+                link: '#experience'
+            });
+        });
+        
+        // Skills
+        document.querySelectorAll('.skill-card').forEach(card => {
+            searchableItems.push({
+                title: card.querySelector('h3') ? card.querySelector('h3').textContent : 'Skill',
+                desc: card.querySelector('p') ? card.querySelector('p').textContent : card.textContent,
+                link: '#skills'
+            });
+        });
+        
+        // Manual Testing
+        document.querySelectorAll('.slide').forEach(slide => {
+            searchableItems.push({
+                title: slide.querySelector('h3') ? slide.querySelector('h3').textContent : 'Manual Testing',
+                desc: slide.querySelector('p') ? slide.querySelector('p').textContent : slide.textContent,
+                link: '#manual-testing'
+            });
+        });
+        
+        // DevOps
+        document.querySelectorAll('.devops-tags .tag').forEach(tag => {
+            searchableItems.push({
+                title: tag.textContent,
+                desc: 'DevOps Journey',
+                link: '#devops'
+            });
+        });
+
         const performSearch = () => {
-            const query = searchInput.value.toLowerCase();
+            const query = searchInput.value.toLowerCase().trim();
+            searchResults.innerHTML = '';
             
-            // Filter Timeline Items (Experience)
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                const text = item.textContent.toLowerCase();
-                item.style.display = text.includes(query) ? '' : 'none';
-            });
+            if (!query) {
+                searchResults.classList.add('hidden');
+                return;
+            }
             
-            // Filter Skill Cards
-            document.querySelectorAll('.skill-card').forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(query) ? '' : 'none';
-            });
+            const matches = searchableItems.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.desc.toLowerCase().includes(query)
+            );
             
-            // Filter Manual Testing Slides
-            document.querySelectorAll('.slide').forEach(slide => {
-                const text = slide.textContent.toLowerCase();
-                slide.style.display = text.includes(query) ? '' : 'none';
-            });
+            if (matches.length === 0) {
+                searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
+            } else {
+                matches.forEach(match => {
+                    const el = document.createElement('a');
+                    el.href = match.link;
+                    el.className = 'search-result-item';
+                    el.innerHTML = `
+                        <div class="search-result-title">${match.title}</div>
+                        <div class="search-result-desc">${match.desc}</div>
+                    `;
+                    // Hide search on click
+                    el.addEventListener('click', () => {
+                        searchResults.classList.add('hidden');
+                    });
+                    searchResults.appendChild(el);
+                });
+            }
             
-            // Filter DevOps Tags
-            document.querySelectorAll('.devops-tags .tag').forEach(tag => {
-                const text = tag.textContent.toLowerCase();
-                tag.style.display = text.includes(query) ? '' : 'none';
-            });
+            searchResults.classList.remove('hidden');
         };
 
         searchBtn.addEventListener('click', performSearch);
@@ -165,6 +213,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 performSearch();
+            }
+        });
+        
+        // Hide when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchBtn.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.add('hidden');
             }
         });
     }
