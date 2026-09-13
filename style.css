@@ -762,13 +762,14 @@ p {
     display: flex;
     align-items: center;
     margin-left: 1.5rem;
+    position: relative;
 }
 
 #site-search {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
-    padding: 8px 16px;
+    padding: 8px 36px 8px 16px;
     color: var(--text-primary);
     font-family: var(--font-main);
     font-size: 0.9rem;
@@ -782,5 +783,22 @@ p {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 10px var(--accent-glow);
     width: 240px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.search-btn:hover {
+    color: var(--accent);
 }
 

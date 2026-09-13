@@ -128,10 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Portfolio Search functionality
     const searchInput = document.getElementById('site-search');
+    const searchBtn = document.getElementById('search-btn');
     
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
+    if (searchInput && searchBtn) {
+        const performSearch = () => {
+            const query = searchInput.value.toLowerCase();
             
             // Filter Timeline Items (Experience)
             document.querySelectorAll('.timeline-item').forEach(item => {
@@ -156,6 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const text = tag.textContent.toLowerCase();
                 tag.style.display = text.includes(query) ? '' : 'none';
             });
+        };
+
+        searchBtn.addEventListener('click', performSearch);
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
         });
     }
 });
