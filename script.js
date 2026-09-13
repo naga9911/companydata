@@ -223,4 +223,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Dropdown toggle functionality
+    const aboutToggle = document.getElementById('about-toggle');
+    const aboutDropdown = document.getElementById('about-dropdown');
+
+    if (aboutToggle && aboutDropdown) {
+        aboutToggle.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent navigating to #
+            aboutDropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!aboutDropdown.contains(e.target)) {
+                aboutDropdown.classList.remove('active');
+            }
+        });
+    }
 });

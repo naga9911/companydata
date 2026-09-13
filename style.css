@@ -177,7 +177,7 @@ p {
     z-index: 1000;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown.active .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
